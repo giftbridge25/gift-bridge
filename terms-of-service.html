@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GiftBridge - Kết Nối Quà Tặng</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f9f9f9;
+    }
+
+    :root {
+      --primary: #349158;
+      --primary-dark: #2a7646;
+      --primary-light: #4da66b;
+      --neutral-light: #f5f5f5;
+      --neutral-medium: #e0e0e0;
+      --neutral-dark: #2d2d2d;
+      --accent: #fff;
+    }
+
+    /* Header */
+    header {
+      background: white;
+      padding: 1rem 0;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    ul {
+      list-style: inside;
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .logo svg {
+      width: 40px;
+      height: 40px;
+    }
+
+    nav a {
+      color: var(--neutral-dark);
+      text-decoration: none;
+      margin: 0 1.5rem;
+      transition: color 0.3s;
+      font-size: 0.95rem;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    .cta-button {
+      background: var(--primary);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: background 0.3s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .cta-button:hover {
+      background: var(--primary-dark);
+    }
+
+    /* Hero Section */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 4rem;
+      max-width: 1200px;
+      margin: 5rem auto;
+      padding: 0 2rem;
+    }
+
+    .hero-content h1 {
+      font-size: 3.5rem;
+      color: var(--neutral-dark);
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .hero-content p {
+      font-size: 1.1rem;
+      color: #666;
+      margin-bottom: 2rem;
+      line-height: 1.8;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--primary);
+      padding: 1rem 2rem;
+      border: 2px solid var(--primary);
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .btn-secondary:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    .hero-image {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      padding: 3rem;
+      border-radius: 20px;
+      text-align: center;
+      color: white;
+      font-size: 1.2rem;
+      min-height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Services Section */
+    .services {
+      background: white;
+      padding: 5rem 2rem;
+      scroll-margin-top: 5rem;
+    }
+
+    .services-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      color: var(--neutral-dark);
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+
+    .section-description {
+      max-width: 900px;
+      margin: -2rem auto 3rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .service-card {
+      padding: 2rem;
+      border-radius: 12px;
+      background: #f9f9f9;
+      border-left: 4px solid var(--primary);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(52, 145, 88, 0.15);
+    }
+
+    .service-card h3 {
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .service-card p {
+      color: #666;
+      line-height: 1.8;
+    }
+
+    /* About Section */
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 4rem;
+      max-width: 1200px;
+      margin: 5rem auto;
+      scroll-margin-top: 5rem;
+      padding: 0 2rem;
+    }
+
+    .about-content h2 {
+      font-size: 2.5rem;
+      color: var(--neutral-dark);
+      margin-bottom: 1.5rem;
+    }
+
+    .about-content p {
+      color: #666;
+      margin-bottom: 1rem;
+      line-height: 1.8;
+    }
+
+    .about-image {
+      background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+      padding: 3rem;
+      border-radius: 20px;
+      text-align: center;
+      color: white;
+      font-size: 1.2rem;
+      min-height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Testimonials */
+    .testimonials {
+      background: var(--primary);
+      color: white;
+      padding: 5rem 2rem;
+      margin: 5rem 0 0;
+    }
+
+    .testimonials-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .testimonials .section-title {
+      color: white;
+      margin-bottom: 3rem;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .testimonial-card {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 2rem;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+    }
+
+    .testimonial-card p {
+      margin-bottom: 1rem;
+      font-style: italic;
+      line-height: 1.8;
+    }
+
+    .testimonial-author {
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .star {
+      color: #ffc107;
+      margin-right: 0.5rem;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: white;
+      padding: 4rem 2rem;
+      text-align: center;
+      margin: 5rem 0;
+    }
+
+    .cta-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .cta-section p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      opacity: 0.95;
+    }
+
+    .cta-section .btn-primary {
+      background: white;
+      color: var(--primary);
+    }
+
+    .cta-section .btn-primary:hover {
+      background: #f0f0f0;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--neutral-dark);
+      color: white;
+      padding: 3rem 2rem 1rem;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-section h4 {
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+
+    .footer-section a,
+    .footer-section p {
+      color: #ccc;
+      text-decoration: none;
+      margin-bottom: 0.5rem;
+      transition: color 0.3s;
+    }
+
+    .footer-section a:hover {
+      color: var(--primary);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 2rem;
+      text-align: center;
+      color: #999;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+
+      .hero,
+      .about {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        margin: 2rem auto;
+      }
+
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+      }
+
+      .header-container {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      nav {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+        width: 100%;
+      }
+
+      nav a {
+        margin: 0.5rem 0;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+      }
+
+      .btn-primary,
+      .btn-secondary {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <a class="logo" href="./">
+        <img src="/GiftBridge.png" alt="GiftBridge" width="150" height="42" loading="eager" />
+      </a>
+      <nav>
+        <a href="./#services">Services</a>
+        <a href="./#about">About Us</a>
+        <a href="./#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Services Section -->
+  <section class="services">
+    <div class="services-container">
+      <h2 class="section-title">Terms of Service</h2>
+      <div class="section-description">
+        <h2>Eligibility And Registration</h2>
+
+
+
+
+
+        <p>To use our website and place orders, you must be at least 18 years old or have the permission of a parent or
+          guardian. By using our website or placing an order, you represent and warrant that you meet these eligibility
+          requirements. You may be asked to create an account and provide certain personal information, such as your
+          name, email address, and shipping details. You agree to provide accurate and up-to-date information and to
+          maintain the confidentiality of your account and password.</p>
+
+
+
+
+
+        <h2>Accuracy, Completeness, And Timeliness Of Information</h2>
+
+
+
+
+
+        <p>We strive to provide accurate and up-to-date information on our website. However, we cannot guarantee that
+          the information is always complete, accurate, or current. Any reliance on the information provided on this
+          website is at your own risk, and Personal House shall not be held liable for any inaccuracies or omissions.
+        </p>
+
+
+
+
+
+        <h2>Modifications To The Service And Prices</h2>
+
+
+
+
+
+        <p>Prices for our products and services are subject to change without notice. We reserve the right to modify or
+          discontinue our services (or any part thereof) at any time without prior notice. Personal House shall not be
+          liable to you or any third party for any modification, price change, suspension, or discontinuance of our
+          services.</p>
+
+
+
+
+
+        <h2>Products Or Services</h2>
+
+
+
+
+
+        <p>We make every effort to accurately display the colors and images of our products on our website. However, we
+          cannot guarantee that your computer monitor's display of any color will be accurate. We reserve the right to
+          limit the quantities of any products or services that we offer and to discontinue any product at any time
+          without notice. All descriptions of products or product pricing are subject to change at any time without
+          notice.</p>
+
+
+
+
+
+        <h2>Accuracy Of Billing And Account Information</h2>
+
+
+
+
+
+        <p>You agree to provide current, complete, and accurate purchase and account information for all purchases made
+          on our website. You agree to promptly update your account and other information, including your email address
+          and credit card numbers and expiration dates, so that we can complete your transactions and contact you as
+          needed.</p>
+
+
+
+
+
+        <h2>Optional Tools</h2>
+
+
+
+
+
+        <p>We may provide you with access to third-party tools over which we have no control or input. You acknowledge
+          and agree that we provide access to such tools "as is" and "as available" without any warranties,
+          representations, or conditions of any kind and without any endorsement. Personal House shall have no liability
+          whatsoever arising from or relating to your use of optional third-party tools.</p>
+
+
+
+
+
+        <h2>Third-party Content And Links</h2>
+
+
+
+
+
+        <p>Our website may contain links to third-party websites or resources that are not affiliated with Personal
+          House. We are not responsible for the content, products, or services available from such websites or
+          resources. We encourage you to read the terms and conditions and privacy policies of any third-party websites
+          or resources before using them.</p>
+
+
+
+
+
+        <h2>Prohibited Conduct</h2>
+
+
+
+
+
+        <p>By using our website and services, you agree not to engage in any prohibited conduct, which includes, but is
+          not limited to:</p>
+        <ul>
+          <li>Using our website for any unlawful purpose or in violation of any laws or regulations</li>
+          <li>Submitting false, misleading, or inaccurate information</li>
+          <li>Interfering with or disrupting the operation of our website or services</li>
+          <li>Attempting to gain unauthorized access to our website, systems, or user accounts</li>
+          <li> Engaging in any activity that infringes or violates the rights of Personal House or others, including
+            intellectual property rights.<br></li>
+        </ul>
+
+
+
+
+
+        <h2>Termination</h2>
+
+
+
+
+
+        <p>You agree to indemnify, defend, and hold harmless Personal House, its officers, directors, employees, agents,
+          and affiliates from and against any and all claims, liabilities, damages, losses, or expenses, including
+          reasonable attorneys' fees and costs, arising out of or in any way connected with your access to or use of our
+          website, your violation of these Terms of Service, or your infringement of any intellectual property or other
+          rights of Personal House or any third party.</p>
+
+
+
+
+
+        <h2>Indemnification<br></h2>
+
+
+
+
+
+        <p>These Terms of Service are effective unless and until terminated by either you or Personal House. You may
+          terminate these Terms of Service at any time by notifying us that you no longer wish to use our services or by
+          ceasing to use our website. Personal House may terminate these Terms of Service at any time without notice and
+          may deny you access to our website and services if, in our sole discretion, you fail to comply with any term
+          or provision of these Terms of Service.</p>
+
+
+
+
+
+        <h2>Governing Law And Dispute Resolution</h2>
+
+
+
+
+
+        <p>These Terms of Service and any separate agreements whereby we provide you with services shall be governed by
+          and construed in accordance with the laws of the country in which Personal House is located. Any disputes
+          arising from or relating to these Terms of Service or your use of our website or services shall be resolved
+          through negotiation, mediation, or arbitration, as agreed upon by both parties. If the dispute cannot be
+          resolved through negotiation, mediation, or arbitration, the parties agree to submit the dispute to the
+          exclusive jurisdiction of the courts located in the country where Personal House is based.<br>By using our
+          website and services, you agree to be bound by these Terms of Service. If you do not agree to all the terms
+          and conditions of this agreement, you must not access or use our website or services. We reserve the right to
+          update, change, or replace any part of these Terms of Service by posting updates or changes to our website.
+          Your continued use of our website and services following the posting of any changes to these Terms of Service
+          constitutes acceptance of those changes.<br></p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section" id="contact">
+        <h4>GiftBridge</h4>
+        <p>Mail: <a href="mailto:support@giftbridge.com">support@giftbridge.com</a></p>
+        <p>Address: Flat/RM 1618B 16/F Pioneer Centre, 750 Nathan Road, Kowloon, Hong Kong</p>
+        <p>Mon - Sun: 24/7</p>
+      </div>
+      <div class="footer-section">
+        <h4>Support</h4>
+        <p><a href="./replacement-refund.html">Replacement & Refund</a></p>
+        <p><a href="./privacy-policy.html">Privacy Policy</a></p>
+        <p><a href="./terms-of-service.html">Terms of Service</a></p>
+        <p><a href="./shipping-delivery.html">Shipping & Delivery</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 GiftBridge. All Rights Reserved.</p>
+    </div>
+  </footer>
+</body>
+
+</html>
