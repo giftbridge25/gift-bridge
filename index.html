@@ -70,7 +70,7 @@
         }
 
         .header-container {
-            max-width: 1200px;
+            max-width: 1440px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
@@ -125,7 +125,7 @@
             grid-template-columns: 1fr 1fr;
             align-items: center;
             gap: 4rem;
-            max-width: 1200px;
+            max-width: 1440px;
             margin: 5rem auto;
             padding: 0 2rem;
         }
@@ -209,7 +209,7 @@
         }
 
         .services-container {
-            max-width: 1200px;
+            max-width: 1440px;
             margin: 0 auto;
         }
 
@@ -269,7 +269,7 @@
             grid-template-columns: 1fr 1fr;
             align-items: center;
             gap: 4rem;
-            max-width: 1200px;
+            max-width: 1440px;
             margin: 5rem auto;
             scroll-margin-top: 5rem;
             padding: 0 2rem;
@@ -314,7 +314,7 @@
         }
 
         .testimonials-container {
-            max-width: 1200px;
+            max-width: 1440px;
             margin: 0 auto;
         }
 
@@ -392,12 +392,16 @@
         }
 
         .footer-container {
-            max-width: 1200px;
+            max-width: 1440px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
+            grid-template-columns: repeat(4, minmax(0, 1fr));
             gap: 2rem;
             margin-bottom: 2rem;
+        }
+
+        .col-span-2 {
+            grid-column: span 2 / span 2;
         }
 
         .footer-section h4 {
@@ -555,9 +559,9 @@
     <section class="hero">
         <div class="hero-content">
             <h1>Who Is <span style="color: var(--primary);">GiftBridge</span></h1>
-            <p>GiftBridge is the place to find gifts that are made just for you. Our gifts let you add your own touch —
-                like a name, phrase or design — to create something unique. With Callie, every gift tells a story of
-                friendship and family tie</p>
+            <p>GiftBridge is the place to find gifts that are made just for you. Our gifts let you add your own touch
+                like a name, phrase or design to create something unique. With GiftBridge, every gift tells a story of
+                friendship and family tie.</p>
 
         </div>
         <div class="hero-image">
@@ -583,7 +587,7 @@
                     <img src="./service-2.jpg" alt="Home Decor" width="311" height="207" loading="lazy">
                     <h3>🏠 Home Decor</h3>
                     <p>Transform your living space with our unique home decor items. From personalized wall art to
-                        custom-made pillows and blankets, we have everything you need to make your home truly yours</p>
+                        custom-made pillows and blankets, we have everything you need to make your home truly yours.</p>
                 </div>
                 <div class="service-card">
                     <img src="./service-3.jpg" alt="Everyday Essentials" width="311" height="207" loading="lazy">
@@ -689,7 +693,7 @@
                 <p><a href="./terms-of-service.html">Terms of Service</a></p>
                 <p><a href="./shipping-delivery.html">Shipping & Delivery</a></p>
             </div>
-            <div class="footer-section" id="contact">
+            <div class="footer-section col-span-2" id="contact">
                 <p>✉️ Mail: <a href="mailto:info@giftbridge.com">info@giftbridge.com</a></p>
                 <p>📍 Address: Flat/RM 1618B 16/F Pioneer Centre, 750 Nathan Road, Kowloon, Hong Kong</p>
                 <p>🕒 Office Hours: Mon-Sun 24/7</p>
