@@ -153,6 +153,7 @@ nav a:hover {
     position: relative;
     clip-path: polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%);
     overflow: hidden;
+    margin-bottom: 0;
   }
 }
 
