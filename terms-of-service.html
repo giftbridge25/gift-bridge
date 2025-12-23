@@ -10,14 +10,17 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,500&family=Plus+Jakarta+Sans:wght@200;400;600&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="./assets/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="./assets/styles.css" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="./assets/styles.css"></noscript>
 </head>
 
 <body>
   <div id="canvas-bg"></div>
 
   <header>
-    <a class="logo" href="./"><img src="./assets/GiftBridge.png" alt="GiftBridge"></a>
+    <a class="logo" href="./"><img src="./assets/GiftBridge.png" alt="GiftBridge" width="150" height="42" loading="eager"></a>
     <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
       <span class="hamburger-box">
         <span class="hamburger-inner"></span>
@@ -269,7 +272,7 @@
   <footer id="contact">
     <div class="footer-grid">
       <div class="footer-logo">
-        <img src="./assets/GiftBridge.png" alt="Logo">
+        <img src="./assets/GiftBridge.png" alt="Logo" width="107.3" height="40" loading="lazy">
         <p style="opacity:0.5; font-size:0.85rem;">Follow GiftBridge on social media for the latest updates,
           special offers, and daily inspiration. Join our community and let us be part of your meaningful
           moments.</p>

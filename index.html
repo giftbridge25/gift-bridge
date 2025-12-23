@@ -7,17 +7,23 @@
     <title>GiftBridge – Personalized Gifts Made Just for You</title>
     <link rel="icon" type="image/png" href="./assets/favicon.png" />
     <meta name="description" content="GiftBridge offers personalized gifts for every occasion.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,500&family=Plus+Jakarta+Sans:wght@200;400;600&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="./assets/styles.css">
+    <!-- Preload main stylesheet to avoid render-blocking while retaining stylesheet caching behavior -->
+    <link rel="preload" href="./assets/styles.css" as="style" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="./assets/styles.css"></noscript>
+    <!-- Preload hero image (LCP) -->
+    <link rel="preload" as="image" href="./assets/hero-image.jpg">
 </head>
 
 <body>
     <div id="canvas-bg"></div>
 
     <header>
-        <a class="logo" href="./"><img src="./assets/GiftBridge.png" alt="GiftBridge"></a>
+        <a class="logo" href="./"><img src="./assets/GiftBridge.png" alt="GiftBridge" width="150" height="42" loading="eager"></a>
         <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"
             aria-controls="mobile-nav">
             <span class="hamburger-box">
@@ -92,15 +98,15 @@
                     touch like a name, phrase or design to create something unique. With GiftBridge, every gift tells a
                     story of friendship and family tie.</p>
             </div>
-            <div class="hero-image-wrap">
-                <img src="./assets/hero-image.jpg" alt="Hero Image">
+            <div class="hero-image-wrap" role="img" aria-label="GiftBridge hero image">
+                <img src="./assets/hero-image.jpg" alt="Hero Image" width="1600" height="900" loading="eager" fetchpriority="high" decoding="async">
             </div>
         </section>
 
         <section class="services" id="services">
             <div class="reveal-title">COLLECTIONS</div>
             <div class="service-row">
-                <div class="service-img"><img src="./assets/service-1.jpg" alt="Gifts"></div>
+                <div class="service-img"><img src="./assets/service-1.jpg" alt="Gifts" loading="lazy" decoding="async"></div>
                 <div class="service-info">
                     <h3>🎨 Personalized Gifts</h3>
                     <p>Whether it's a birthday, anniversary, wedding, or any special occasion, we have the perfect gift
@@ -108,7 +114,7 @@
                 </div>
             </div>
             <div class="service-row">
-                <div class="service-img"><img src="./assets/service-2.jpg" alt="Decor"></div>
+                <div class="service-img"><img src="./assets/service-2.jpg" alt="Decor" loading="lazy" decoding="async"></div>
                 <div class="service-info">
                     <h3>🏠 Home Decor</h3>
                     <p>Transform your living space with của unique home decor items. From personalized wall art to

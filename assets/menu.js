@@ -5,8 +5,26 @@
     const mobileClose = document.getElementById('mobile-close');
     const menuOverlay = document.getElementById('menu-overlay');
 
+    let lastFocusedElement = null;
+    let trapKeyHandler = null;
+
+    // Ensure ARIA role for dialog behavior
+    if (mobileNav) {
+      mobileNav.setAttribute('role', 'dialog');
+      mobileNav.setAttribute('aria-modal', 'true');
+    }
+
+    function getFocusableElements(container) {
+      if (!container) return [];
+      return Array.from(
+        container.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])')
+      ).filter((el) => el.offsetWidth || el.offsetHeight || el.getClientRects().length);
+    }
+
     function openMenu() {
       if (!hamburger || !mobileNav) return;
+      lastFocusedElement = document.activeElement;
+
       hamburger.classList.add('open');
       mobileNav.classList.add('open');
       hamburger.setAttribute('aria-expanded', 'true');
@@ -16,8 +34,36 @@
         menuOverlay.classList.add('open');
         menuOverlay.setAttribute('aria-hidden', 'false');
       }
-      const firstLink = mobileNav.querySelector('a');
+
+      const focusables = getFocusableElements(mobileNav);
+      const firstLink = focusables[0] || mobileNav.querySelector('a');
       if (firstLink) firstLink.focus();
+
+      // Add focus trap
+      trapKeyHandler = function (e) {
+        if (e.key === 'Escape') return closeMenu();
+        if (e.key !== 'Tab') return;
+        const focusableEls = getFocusableElements(mobileNav);
+        if (focusableEls.length === 0) {
+          e.preventDefault();
+          return;
+        }
+        const firstEl = focusableEls[0];
+        const lastEl = focusableEls[focusableEls.length - 1];
+        if (e.shiftKey) {
+          if (document.activeElement === firstEl) {
+            e.preventDefault();
+            lastEl.focus();
+          }
+        } else {
+          if (document.activeElement === lastEl) {
+            e.preventDefault();
+            firstEl.focus();
+          }
+        }
+      };
+
+      document.addEventListener('keydown', trapKeyHandler);
     }
 
     function closeMenu() {
@@ -31,7 +77,18 @@
         menuOverlay.setAttribute('aria-hidden', 'true');
       }
       document.body.classList.remove('menu-open');
-      hamburger.focus();
+
+      if (trapKeyHandler) {
+        document.removeEventListener('keydown', trapKeyHandler);
+        trapKeyHandler = null;
+      }
+
+      if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+        lastFocusedElement.focus();
+      } else if (hamburger) {
+        hamburger.focus();
+      }
+      lastFocusedElement = null;
     }
 
     if (hamburger) {
@@ -53,6 +110,7 @@
       menuOverlay.addEventListener('click', closeMenu);
     }
 
+    // Keep a fallback Escape handler if trap isn't added for some reason
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && mobileNav && mobileNav.classList.contains('open')) closeMenu();
     });
