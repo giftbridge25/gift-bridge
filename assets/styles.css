@@ -510,35 +510,30 @@ footer {
 }
 
 .partners-track {
-    display: flex;
-    align-items: center;
-    gap: 80px; /* Khoảng cách giữa các logo */
-    animation: marquee-scroll 30s linear infinite;
-    width: max-content;
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  /* Khoảng cách giữa các logo */
+  animation: marquee-scroll 30s linear infinite;
+  width: max-content;
 }
 
 .partner-logo {
-    height: 35px;
-    width: auto;
-    object-fit: contain;
-    opacity: 0.5;
-    filter: brightness(0) invert(1);
-    transition: all 0.3s ease;
+  height: 55px;
+  width: auto;
+  object-fit: contain;
+  transition: all 0.3s ease;
+  opacity: 0.8;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  padding: 5px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .partner-logo:hover {
-    opacity: 1;
-    filter: none;
-    transform: scale(1.1);
-}
-
-.partner-logo {
-  height: 35px;
-  width: auto;
-  object-fit: contain;
-  opacity: 0.5;
-  filter: brightness(0) invert(1);
-  transition: all 0.3s ease;
+  opacity: 1;
+  filter: none;
+  transform: scale(1.1);
 }
 
 .partner-logo:hover {
