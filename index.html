@@ -14,7 +14,9 @@
         rel="stylesheet">
     <!-- Preload main stylesheet to avoid render-blocking while retaining stylesheet caching behavior -->
     <link rel="preload" href="./assets/styles.css" as="style" onload="this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="./assets/styles.css"></noscript>
+    <noscript>
+        <link rel="stylesheet" href="./assets/styles.css">
+    </noscript>
     <!-- Preload hero image (LCP) -->
     <link rel="preload" as="image" href="./assets/hero-image.jpg">
 </head>
@@ -23,7 +25,8 @@
     <div id="canvas-bg"></div>
 
     <header>
-        <a class="logo" href="./"><img src="./assets/GiftBridge.png" alt="GiftBridge" width="150" height="42" loading="eager"></a>
+        <a class="logo" href="./"><img src="./assets/GiftBridge.png" alt="GiftBridge" width="150" height="42"
+                loading="eager"></a>
         <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"
             aria-controls="mobile-nav">
             <span class="hamburger-box">
@@ -94,19 +97,27 @@
         <section class="hero">
             <div class="hero-content">
                 <h1>Who Is <br><span style="color: var(--primary);">GiftBridge</span></h1>
-                <p>GiftBridge is the place to find gifts that are made just for you. Our gifts let you add your own
-                    touch like a name, phrase or design to create something unique. With GiftBridge, every gift tells a
-                    story of friendship and family tie.</p>
+                <p>GiftBridge is an e-commerce company specializing in personalized gift products. We offer thoughtfully
+                    designed gifts that can be customized with names, meaningful phrases, or unique designs- turning
+                    every item into something truly one of a kind.
+                    <br>
+                    <br>
+                    At GiftBridge, we believe that a gift is more than just an object; it is a story of connection,
+                    friendship, and family ties. By combining creativity with seamless online shopping, we help our
+                    customers create memorable gifts that celebrate life’s special moments.
+                </p>
             </div>
             <div class="hero-image-wrap" role="img" aria-label="GiftBridge hero image">
-                <img src="./assets/hero-image.jpg" alt="Hero Image" width="1600" height="900" loading="eager" fetchpriority="high" decoding="async">
+                <img src="./assets/hero-image.jpg" alt="Hero Image" width="1600" height="900" loading="eager"
+                    fetchpriority="high" decoding="async">
             </div>
         </section>
 
         <section class="services" id="services">
             <div class="reveal-title">COLLECTIONS</div>
             <div class="service-row">
-                <div class="service-img"><img src="./assets/service-1.jpg" alt="Gifts" loading="lazy" decoding="async"></div>
+                <div class="service-img"><img src="./assets/service-1.jpg" alt="Gifts" loading="lazy" decoding="async">
+                </div>
                 <div class="service-info">
                     <h3>🎨 Personalized Gifts</h3>
                     <p>Whether it's a birthday, anniversary, wedding, or any special occasion, we have the perfect gift
@@ -114,7 +125,8 @@
                 </div>
             </div>
             <div class="service-row">
-                <div class="service-img"><img src="./assets/service-2.jpg" alt="Decor" loading="lazy" decoding="async"></div>
+                <div class="service-img"><img src="./assets/service-2.jpg" alt="Decor" loading="lazy" decoding="async">
+                </div>
                 <div class="service-info">
                     <h3>🏠 Home Decor</h3>
                     <p>Transform your living space with của unique home decor items. From personalized wall art to
@@ -127,6 +139,59 @@
                     <h3>📱 Everyday Essentials</h3>
                     <p>Add a personal touch to your daily routine with our range of customized products, including mugs,
                         tumblers, and phone cases. These items make perfect gifts for yourself or someone special. </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="shop-categories" id="popular-categories">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="cormorant">Shop Our <span class="primary-text">Most Popular</span> Categories</h2>
+                    <p class="subtitle">Handpicked favorites customized just for you</p>
+                </div>
+
+                <div class="categories-wrapper">
+                    <div class="cat-card">
+                        <div class="cat-shape bg-green-gradient">
+                            <img src="./assets/cat-puzzle.png" alt="Custom Puzzle" class="cat-img">
+                        </div>
+                        <h4 class="cat-name">Puzzles</h4>
+                    </div>
+
+                    <div class="cat-card">
+                        <div class="cat-shape bg-gold-gradient">
+                            <img src="./assets/cat-mug.png" alt="Custom Mug" class="cat-img">
+                        </div>
+                        <h4 class="cat-name">Drinkware</h4>
+                    </div>
+
+                    <div class="cat-card">
+                        <div class="cat-shape bg-green-gradient">
+                            <img src="./assets/cat-crochet.png" alt="Handmade Crochet" class="cat-img">
+                        </div>
+                        <h4 class="cat-name">Crochet Arts</h4>
+                    </div>
+
+                    <div class="cat-card">
+                        <div class="cat-shape bg-gold-gradient">
+                            <img src="./assets/cat-ornament.png" alt="Holiday Ornament" class="cat-img">
+                        </div>
+                        <h4 class="cat-name">Ornaments</h4>
+                    </div>
+
+                    <div class="cat-card">
+                        <div class="cat-shape bg-green-gradient">
+                            <img src="./assets/cat-car.png" alt="Car Accessories" class="cat-img">
+                        </div>
+                        <h4 class="cat-name">Car Decor</h4>
+                    </div>
+
+                    <div class="cat-card">
+                        <div class="cat-shape bg-gold-gradient">
+                            <img src="./assets/cat-shirt.png" alt="Apparel" class="cat-img">
+                        </div>
+                        <h4 class="cat-name">Apparel</h4>
+                    </div>
                 </div>
             </div>
         </section>
@@ -156,6 +221,7 @@
             </div>
         </section>
 
+
         <section class="testimonials">
             <div class="t-track">
                 <div class="t-card">
@@ -174,6 +240,211 @@
                     <p>★★★★★</p>
                     <p>“My husband loves his new t-shirt!! Great!!”</p><small>- Dean Meggitt</small>
                 </div>
+            </div>
+        </section>
+
+        <section class="strategy-section" style="padding: 120px 10%; background: #07160e;">
+            <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 100px; align-items: start;">
+                <div class="vision-box">
+                    <h2
+                        style="font-family:'Cormorant Garamond'; font-size: 3.5rem; line-height: 1; margin-bottom: 30px;">
+                        Our <span style="color: var(--primary);">Vision</span></h2>
+                    <p
+                        style="font-size: 1.25rem; line-height: 1.7; opacity: 0.9; font-weight: 200; border-left: 3px solid var(--primary); padding-left: 30px;">
+                        To become a trusted global e-commerce brand for personalized gifts in US, UK, EU, AU, connecting
+                        people across cultures and distances through products that carry emotional value and lasting
+                        meaning.
+                    </p>
+                </div>
+
+                <div class="mission-box">
+                    <h2
+                        style="font-family:'Cormorant Garamond'; font-size: 3.5rem; line-height: 1; margin-bottom: 40px;">
+                        Our <span style="color: var(--primary);">Mission</span></h2>
+                    <div class="mission-list">
+                        <div style="margin-bottom: 30px; display: flex; gap: 20px;">
+                            <span
+                                style="font-family: 'Cormorant Garamond'; font-size: 2rem; color: var(--primary); opacity: 0.5;">01</span>
+                            <p style="opacity: 0.7; font-size: 1rem; line-height: 1.6;">To empower customers to create
+                                unique, personalized gifts that reflect genuine emotions and personal stories.</p>
+                        </div>
+                        <div style="margin-bottom: 30px; display: flex; gap: 20px;">
+                            <span
+                                style="font-family: 'Cormorant Garamond'; font-size: 2rem; color: var(--primary); opacity: 0.5;">02</span>
+                            <p style="opacity: 0.7; font-size: 1rem; line-height: 1.6;">To deliver a smooth, secure, and
+                                reliable online shopping experience from customization to delivery.</p>
+                        </div>
+                        <div style="display: flex; gap: 20px;">
+                            <span
+                                style="font-family: 'Cormorant Garamond'; font-size: 2rem; color: var(--primary); opacity: 0.5;">03</span>
+                            <p style="opacity: 0.7; font-size: 1rem; line-height: 1.6;">To continuously innovate in
+                                design and personalization technology while maintaining consistent product quality and
+                                customer satisfaction.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="values-section" style="padding: 100px 10%; background: #040d08;">
+            <div style="text-align: center; margin-bottom: 70px;">
+                <h2 style="font-family:'Cormorant Garamond'; font-size: 3.5rem;">Core <span
+                        style="color: var(--primary);">Values</span></h2>
+            </div>
+
+            <div class="values-grid">
+                <div class="value-item">
+                    <div class="value-number">01</div>
+                    <h3>Meaningful Personalization</h3>
+                    <p>We believe personalization transforms a product into a story—making each gift personal,
+                        emotional, and memorable.</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-number">02</div>
+                    <h3>Quality & Reliability</h3>
+                    <p>From materials to fulfillment, we are committed to delivering products that meet high quality
+                        standards and arrive as promised.</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-number">03</div>
+                    <h3>Trust & Transparency</h3>
+                    <p>We operate with integrity, secure payment systems, and clear communication to build long-term
+                        trust with customers and partners.</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-number">04</div>
+                    <h3>Continuous Improvement</h3>
+                    <p>We embrace innovation and feedback to constantly improve our products, processes, and services.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="leadership" id="team" style="padding: 120px 10%;">
+            <div style="text-align: center; margin-bottom: 80px;">
+                <h2 style="font-family:'Cormorant Garamond'; font-size: 3.5rem; margin-bottom: 10px;">The Minds Behind
+                    <span style="color: var(--primary);">GiftBridge</span>
+                </h2>
+                <p style="opacity: 0.6; letter-spacing: 1px;">Driven by passion, led by global expertise.</p>
+            </div>
+
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="member-img-wrap">
+                        <img src="./assets/team/daniel-li.png" alt="Clara Huang - COO" loading="lazy">
+                    </div>
+                    <div class="member-info">
+                        <h4>Daniel Li</h4>
+                        <span>CEO</span>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="member-img-wrap">
+                        <img src="./assets/team/clara-huang.png" alt="Andrew Mercer - CTO" loading="lazy">
+                    </div>
+                    <div class="member-info">
+                        <h4>Clara Huang</h4>
+                        <span>COO</span>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="member-img-wrap">
+                        <img src="./assets/team/andrew-mercer.png" alt="Vivian Guo - CSO" loading="lazy">
+                    </div>
+                    <div class="member-info">
+                        <h4>Andrew Mercer</h4>
+                        <span>CTO</span>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="member-img-wrap">
+                        <img src="./assets/team/vivian-guo.png" alt="Sneha Liu - CMO" loading="lazy">
+                    </div>
+                    <div class="member-info">
+                        <h4>Vivian Guo</h4>
+                        <span>CSO</span>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="member-img-wrap">
+                        <img src="./assets/team/sneha-liu.png" alt="Sneha Liu - CMO" loading="lazy">
+                    </div>
+                    <div class="member-info">
+                        <h4>Sneha Liu</h4>
+                        <span>CMO</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="partners"
+            style="padding: 80px 0; background: rgba(255,255,255,0.02); border-top: 1px solid rgba(255,255,255,0.05);">
+            <div style="text-align: center; margin-bottom: 40px; opacity: 0.5;">
+                <p style="font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; font-weight: 600;">Trusted
+                    by Global Partners</p>
+            </div>
+
+            <div class="partners-marquee">
+                <div class="partners-track">
+                    <span class="partner-item">TikTok</span>
+                    <span class="partner-item">Amazon</span>
+                    <span class="partner-item">Meta</span>
+                    <span class="partner-item">Stripe</span>
+                    <span class="partner-item">Google</span>
+                    <span class="partner-item">YunExpress</span>
+                    <span class="partner-item">DHL</span>
+                    <span class="partner-item">TikTok</span>
+                    <span class="partner-item">Amazon</span>
+                    <span class="partner-item">Meta</span>
+                    <span class="partner-item">Stripe</span>
+                    <span class="partner-item">Google</span>
+                    <span class="partner-item">YunExpress</span>
+                    <span class="partner-item">DHL</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="memberships"
+            style="padding: 100px 10%; background: #040d08; border-top: 1px solid rgba(255,255,255,0.05);">
+            <div style="text-align: center; margin-bottom: 60px;">
+                <h2 style="font-family:'Cormorant Garamond'; font-size: 2.5rem; letter-spacing: 1px;">Strategic <span
+                        style="color: var(--primary);">Affiliations</span></h2>
+                <p style="opacity: 0.5; font-size: 0.9rem; margin-top: 10px;">GiftBridge is proud to be a recognized
+                    member of leading global trade and logistics organizations.</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+
+                <div class="member-card">
+                    <div class="badge-icon">
+                        <img src="./assets/AEA.png" alt="Asia Ecommerce Alliance">
+                    </div>
+                    <h4>Asia Ecommerce Alliance</h4>
+                    <p>Representing digital trade interests and fostering e-commerce growth across the Asia-Pacific
+                        region.</p>
+                </div>
+
+                <div class="member-card">
+                    <div class="badge-icon">
+                        <img src="./assets/HKGC.png" alt="HKGCC">
+                    </div>
+                    <h4>HKGCC Member</h4>
+                    <p>The Hong Kong General Chamber of Commerce – The oldest and most influential business organization
+                        in HK.</p>
+                </div>
+
+                <div class="member-card">
+                    <div class="badge-icon">
+                        <img src="./assets/FIATA.png" alt="FIATA">
+                    </div>
+                    <h4>FIATA Associate</h4>
+                    <p>International Federation of Freight Forwarders Associations, ensuring global excellence in
+                        logistics.</p>
+                </div>
+
             </div>
         </section>
     </main>
@@ -217,6 +488,24 @@
                 </p>
                 <p>📍 Flat/RM 1618B 16/F Pioneer Centre, 750 Nathan Road, Kowloon, HK</p>
                 <p>🕒 Mon-Sun 24/7</p>
+            </div>
+        </div>
+        <div class="trust-badges">
+            <div class="badge-item">
+                <img src="./assets/ssl.png" alt="SSL Certificate">
+                <span>SSL Secured</span>
+            </div>
+            <div class="badge-item">
+                <img src="./assets/pci-dss.png" alt="PCI DSS Compliance">
+                <span>PCI Compliant</span>
+            </div>
+            <div class="badge-item">
+                <img src="./assets/gdpr.png" alt="GDPR Compliance">
+                <span>GDPR Ready</span>
+            </div>
+            <div class="badge-item">
+                <img src="./assets/ccpa.png" alt="CCPA Compliance">
+                <span>CCPA</span>
             </div>
         </div>
         <div
