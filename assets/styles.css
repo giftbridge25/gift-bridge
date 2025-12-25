@@ -582,8 +582,8 @@ footer {
     margin-bottom: 5px;
 }
 
-.member-info span, .member-info-top span {
-    font-size: 0.7rem;
+.member-info span {
+    font-size: 1rem;
     text-transform: uppercase;
     letter-spacing: 2px;
     color: var(--primary);
